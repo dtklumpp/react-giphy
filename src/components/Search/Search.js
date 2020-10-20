@@ -1,5 +1,6 @@
 import React from 'react';
 import './Search.css';
+import Form from '../Form/Form.js';
 
 class Search extends React.Component {
 
@@ -24,13 +25,17 @@ class Search extends React.Component {
     render() {
 
         return <div>
-            <form action="GET" onSubmit={this.searchFunction}>
+            {/* <form action="GET" onSubmit={this.searchFunction}>
                 <input type="text" placeholder="search input" onInput={this.updateQuery}/><br/>
                 <input type="submit" value="submit search"/>
             </form>
-            <button onClick={this.searchFunction}>Search v2</button>
+            <button onClick={this.searchFunction}>Search v2</button> */}
+
+            <Form searchFunction={this.searchFunction} updateQuery={this.updateQuery} />
+
             <h4>Query: {this.state.query}</h4>
             <h4>Search: {this.state.search}</h4>
+
 
         </div>
     }
