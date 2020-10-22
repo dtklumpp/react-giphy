@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import logo from './logo.svg';
 import Search from './components/Search/Search.js';
+import Results from './components/Results/Results';
 
 function Home() {
   return <div>

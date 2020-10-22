@@ -1,6 +1,7 @@
 import React from 'react';
 import './Search.css';
 import Form from '../Form/Form.js';
+import Results from '../Results/Results.js';
 
 const apiData = {
     "data": [
@@ -45,12 +46,15 @@ class Search extends React.Component {
     state = {
         query: 'default-search',
         search: '',
+        submitted: false,
+        resultsArray: apiData,
     }
 
     searchFunction = () => {
         console.log('searched!');
         this.setState({
             search: this.state.query,
+            submitted: !this.state.submitted,
         })
     }
 
@@ -73,6 +77,9 @@ class Search extends React.Component {
 
             <h4>Query: {this.state.query}</h4>
             <h4>Search: {this.state.search}</h4>
+            <h4>Submitted: {this.state.submitted}</h4>
+
+            <Results display={this.state.submitted} array={this.state.resultsArray}/>
 
 
         </div>
