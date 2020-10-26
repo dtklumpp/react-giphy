@@ -54,18 +54,18 @@ class Search extends React.Component {
     }
 
     searchFunction = () => {
-        console.log('searched!');
+        // console.log('searched!');
         this.setState({
             search: this.state.query,
             submitted: true,
         })
         const query = this.state.query;
         URL = `https://api.giphy.com/v1/gifs/search?api_key=KMBRoE1jJJGOAxWVv0Knnr60xDHRlkt3&q=${query}&limit=25&offset=0&rating=g&lang=en`;
-        console.log('URL:', URL)
+        // console.log('URL:', URL)
         fetch(URL)
         .then(res => res.json())
         .then(json => {
-            console.log(json)
+            // console.log(json)
             this.setState({
                 results: json.data,
             })
@@ -78,11 +78,11 @@ class Search extends React.Component {
         })
         const query = event.target.value;
         URL = `https://api.giphy.com/v1/gifs/search?api_key=KMBRoE1jJJGOAxWVv0Knnr60xDHRlkt3&q=${query}&limit=25&offset=0&rating=g&lang=en`;
-        console.log('URL:', URL)
+        // console.log('URL:', URL)
         fetch(URL)
         .then(res => res.json())
         .then(json => {
-            console.log(json)
+            // console.log(json)
             this.setState({
                 submitted: true,
                 results: json.data,

@@ -4,8 +4,8 @@ class Results extends React.Component {
 
     render() {
 
-        console.log('this.props.array.data:', this.props.array.data)
-        console.log('this.props.display:', this.props.display)
+        // console.log('this.props.array.data:', this.props.array.data)
+        // console.log('this.props.display:', this.props.display)
 
         let visuals = this.props.array.data.map(item => {
                 return <div key={item.id}>
