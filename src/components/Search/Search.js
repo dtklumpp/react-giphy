@@ -41,6 +41,8 @@ const apiData = {
     }
   }
 
+URL = "https://api.giphy.com/v1/gifs/search?api_key=KMBRoE1jJJGOAxWVv0Knnr60xDHRlkt3&q=vole&limit=25&offset=0&rating=g&lang=en"
+
 class Search extends React.Component {
 
     state = {
@@ -48,6 +50,7 @@ class Search extends React.Component {
         search: '',
         submitted: false,
         resultsArray: apiData,
+        results: null,
     }
 
     searchFunction = () => {
@@ -56,6 +59,14 @@ class Search extends React.Component {
             search: this.state.query,
             submitted: !this.state.submitted,
         })
+        fetch(URL)
+        .then(res => res.json())
+        .then(json => {
+            console.log(json)
+            this.setState({
+                results: json.data,
+            })
+        });
     }
 
     updateQuery = (event) => {
@@ -79,7 +90,7 @@ class Search extends React.Component {
             <h4>Search: {this.state.search}</h4>
             <h4>Submitted: {this.state.submitted}</h4>
 
-            <Results display={this.state.submitted} array={this.state.resultsArray}/>
+            <Results display={this.state.submitted} array={this.state.resultsArray} results={this.state.results}/>
 
 
         </div>
